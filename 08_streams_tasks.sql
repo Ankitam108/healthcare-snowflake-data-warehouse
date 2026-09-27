@@ -57,4 +57,5 @@ ALTER TASK STAGING_SCHEMA.load_gene_tests_task RESUME;
 -- SUSPEND THE TASK (scheduled Task OFF)
 ALTER TASK STAGING_SCHEMA.load_gene_tests_task SUSPEND;
 
+-- TO LOOK METADATA
 SHOW TASKS;
