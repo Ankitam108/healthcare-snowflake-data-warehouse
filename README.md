@@ -1,4 +1,4 @@
-# Healthcare Snowflake Data Warehouse
+# Healthcare Snowflake Data Warehouse #
 
 An end-to-end healthcare data warehouse project built using Snowflake and SQL. The project demonstrates how raw healthcare and genetic testing data can be loaded, transformed, validated, and organized into analytics-ready tables for reporting and analysis.
 
@@ -70,7 +70,7 @@ Views + SQL Analysis
 
 ---
 
-Database Design
+## Database Design
 
 **RAW Layer**
 
@@ -212,7 +212,7 @@ TRY_TO_NUMBER(REPLACE(chromosome, 'Chr', ''))
 
 ---
 
-## Project Files ##
+## Project Files
 
 healthcare-snowflake-data-warehouse/
 │
@@ -228,7 +228,7 @@ healthcare-snowflake-data-warehouse/
 ├── 10_views_analysis.sql
 └── README.md
 
-File Description
+## File Description
 
 File| Purpose
 "01_database_setup.sql"| Creates database and schemas
@@ -245,50 +245,7 @@ File| Purpose
 
 ---
 
-Example Analytical Queries
-
-Patients by Disease
-
-SELECT
-    disease,
-    COUNT(*) AS patient_count
-FROM ANALYTICS_SCHEMA.dim_patients
-GROUP BY disease
-ORDER BY patient_count DESC;
-
-Gene Variant Analysis
-
-SELECT
-    gene_name,
-    COUNT(*) AS total_tests,
-    SUM(
-        CASE
-            WHEN is_variant_detected = TRUE THEN 1
-            ELSE 0
-        END
-    ) AS variants_detected
-FROM ANALYTICS_SCHEMA.fact_gene_variants
-GROUP BY gene_name
-ORDER BY variants_detected DESC;
-
-Patients with Detected Variants
-
-SELECT
-    p.patient_id,
-    p.name,
-    p.disease,
-    g.gene_name,
-    g.variant_found,
-    g.chromosome_number
-FROM ANALYTICS_SCHEMA.dim_patients p
-JOIN ANALYTICS_SCHEMA.fact_gene_variants g
-    ON p.patient_id = g.patient_id
-WHERE g.is_variant_detected = TRUE;
-
-
----
-
-Key Learning Outcomes
+## Key Learning Outcomes
 
 Through this project, I practiced:
 
@@ -315,11 +272,10 @@ Through this project, I practiced:
 
 ---
 
-Important Note
+### Important Note
 
 This project uses sample healthcare and genetic testing data for learning and demonstration purposes. It does not contain real patient records or real clinical conclusions.
 
 The genetic testing portion demonstrates data engineering and analytical workflows, not medical or diagnostic interpretation.
 
----
 ---
