@@ -276,6 +276,4 @@ Through this project, I practiced:
 
 This project uses sample healthcare and genetic testing data for learning and demonstration purposes. It does not contain real patient records or real clinical conclusions.
 
-The genetic testing portion demonstrates data engineering and analytical workflows, not medical or diagnostic interpretation.
-
 ---
